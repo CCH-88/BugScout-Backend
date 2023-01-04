@@ -1,5 +1,6 @@
 package com.devopsinc.bugscout.models;
 
+import com.devopsinc.bugscout.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,11 +15,12 @@ public class SystemUser {
     private int id;
     @Column(length = 50)
     private String username;
-    @Column
     private String email;
+
     @Column
-    private String role;
-    @Column(length = 255)
     private String imageURL;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
 }
