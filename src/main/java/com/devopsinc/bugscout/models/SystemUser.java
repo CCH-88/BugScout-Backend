@@ -23,4 +23,8 @@ public class SystemUser {
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
+
+    @OneToOne
+    @JoinTable(name="user_id")
+    private PersonInfo personInfo;
 }

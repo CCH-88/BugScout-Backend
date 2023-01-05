@@ -17,20 +17,19 @@ public class PersonInfo {
 
     @Column
     private String name;
-
     @Column
     private int age;
-
     @Column
     private String phoneNumber;
-
     @Column
     private String address;
-
     @Column
     private String city;
-
     @Column
     private int zipcode;
+
+    @OneToOne(mappedBy = "personInfo")
+    private SystemUser systemUser;
+
 
 }
