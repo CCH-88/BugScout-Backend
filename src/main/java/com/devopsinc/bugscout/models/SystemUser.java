@@ -11,8 +11,8 @@ import lombok.Setter;
 public class SystemUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
-    private int id;
+    @Column(name= "user_id")
+    private int userId;
     @Column(length = 50)
     private String username;
     private String email;
@@ -24,7 +24,7 @@ public class SystemUser {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @OneToOne
-    @JoinTable(name="user_id")
+    //
+    @OneToOne(mappedBy = "systemUser")
     private PersonInfo personInfo;
 }

@@ -12,23 +12,24 @@ public class PersonInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
-    private int id;
+    @Column(name= "person_id")
+    private int personId;
 
     @Column
     private String name;
     @Column
     private int age;
-    @Column
+    @Column(name="phone")
     private String phoneNumber;
     @Column
     private String address;
     @Column
     private String city;
     @Column
-    private int zipcode;
+    private String zipcode;
 
-    @OneToOne(mappedBy = "personInfo")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_user_id")
     private SystemUser systemUser;
 
 
