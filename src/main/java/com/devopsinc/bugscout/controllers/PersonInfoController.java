@@ -34,7 +34,7 @@ public class PersonInfoController {
                                     mediaType = "application/json",
                                     array = @ArraySchema(schema = @Schema(implementation = PersonInfo.class)))})
     })
-    @GetMapping // GET: localhost:8080/api/v1/personinfo
+    @GetMapping("personinfo") // GET: localhost:8080/api/v1/personinfo
     public ResponseEntity<Collection<PersonInfo>> getAll() {
         return ResponseEntity.ok(personInfoService.findAll());
     }
